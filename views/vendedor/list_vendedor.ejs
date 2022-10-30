@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendedores</title>
+    <%- include('../partials/header.ejs') %>
+</head>
+<body>
+    <div class="container">
+        <br>
+        <div>
+            <a href="/vendedor/cadastro" class="btn btn-success">Cadastrar um novo vendedor</a>
+        </div>   
+        <br>
+        <div>
+            <%if(salvo != undefined){%>
+                <div class="alert alert-success" role="alert">
+                    <h4 style="color: green;">
+                        Vendedor cadastrado com sucesso!
+                    </h4>
+                </div>
+            <% }%>  
+    
+            <%if(deletado != undefined){%>
+                <div class="alert alert-danger" role="alert">
+                    <h4 style="color: red;">
+                        Vendedor deletado com sucesso!
+                    </h4>
+                </div>
+            <% }%>  
+    
+            <%if(atualizar != undefined){%>
+                <div class="alert alert-primary" role="alert">
+                    <h4 style="color: blue;">
+                        Vendedor atualizado com sucesso!
+                    </h4>
+                </div>
+            <% }%>  
+    
+            <%if(existe != undefined){%>
+                <div class="alert alert-danger" role="alert">
+                    <h4 style="color: orangered;">
+                    E-mail já existe!
+                    </h4>
+                </div>
+            <% }%>  
+            <table class="table table-striped">
+                <tr>
+                    <th>Vendedor</th>
+                    <th>#</th>
+                    <th>#</th>
+                    <th>#</th>
+                </tr>
+            <%for(const element of vendedores){ 
+            %>
+                <tr>
+                    <td><%= element.nome%></td>
+                    <td><a href="/vendedor/<%= element.email%>" class="btn btn-info">Detalhar</a></td>      
+                    <td><a href="/vendedor/<%= element.email%>/deletar" onclick="return confirm('Deseja realmente remover?')" class="btn btn-danger">Deletar</a></td> 
+                    <td><a href="/vendedor/<%= element.email%>/atualizar" class="btn btn-warning">Atualizar</a></td>       
+                </tr>
+            <%}%>
+            </table>
+        </div>
+        <%- include("../partials/footer.ejs")%> 
+    </div>
+</body>
+</html>

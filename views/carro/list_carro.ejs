@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carros</title>
+    <%- include('../partials/header.ejs') %>
+</head>
+<body>
+    <div class="container">
+        <br>
+        <div>
+            <a href="/carro/cadastro" class="btn btn-success">Cadastrar um novo carro</a>
+        </div>   
+        <br>
+        <div>
+            <%if(salvo != undefined){%>
+                <div class="alert alert-success" role="alert">
+                    <h4 style="color: green;">
+                    Carro cadastrado com sucesso!
+                    </h4>
+                </div>
+            <% }%>  
+    
+            <%if(deletado != undefined){%>
+                <div class="alert alert-danger" role="alert">
+                    <h4 style="color: red;">
+                        Carro deletado com sucesso!
+                    </h4>
+                </div>
+            <% }%>  
+    
+            <%if(atualizar != undefined){%>
+                <div class="alert alert-primary" role="alert">
+                    <h4 style="color: blue;">
+                        Carro atualizado com sucesso!
+                    </h4>
+                </div>
+            <% }%>  
+    
+            <%if(existe != undefined){%>
+                <div class="alert alert-danger" role="alert">
+                    <h4 style="color: orangered;">
+                    Placa já está cadastrada.
+                    </h4>
+                </div>
+            <% }%>  
+            <table class="table table-striped">
+                <tr>
+                    <th>Carro</th>
+                    <th>#</th>
+                    <th>#</th>
+                    <th>#</th>
+                </tr>
+            <%for(const element of carros){ 
+            %>
+                <tr>
+                    <td><%= element.nome%></td>
+                    <td><a href="/carro/<%= element.placa%>" class="btn btn-info">Detalhar</a></td>   
+                    <td><a href="/carro/<%= element.placa%>/deletar" onclick="return confirm('Deseja realmente remover?')" class="btn btn-danger">Deletar</a></td> 
+                    <td><a href="/carro/<%= element.placa%>/atualizar" class="btn btn-warning">Atualizar</a></td> 
+                </tr>
+            <%}%>
+            </table>
+        </div>
+        <%- include("../partials/footer.ejs")%> 
+    </div>
+</body>
+</html>

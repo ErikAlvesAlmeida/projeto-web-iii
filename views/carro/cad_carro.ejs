@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar carro</title>
+    <%- include('../partials/header.ejs') %>
+</head>
+<body>
+    <div class="container">
+        <div><br></div>
+        <div>
+            <h3>CADASTRAR CARRO</h3>
+        </div>
+        <form action="/carro" method="post">
+            <div class="mb-3">
+                <label class="form-label">Placa:</label>
+                <input type="text" class="form-control" autocomplete="off" name="placa" placeholder="(LLL NLNN)" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Nome</label>
+                <input type="text" class="form-control" autocomplete="off" name="nome" placeholder="(Corolla, Grand Siena, ...)" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Marca:</label>
+                <input type="text" class="form-control" autocomplete="off" name="marca" placeholder="(Toyota, Fiat, ...)" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Preço:</label>
+                <input type="number" class="form-control" autocomplete="off" name="valor" placeholder="(Somente números)" required>
+            </div>
+            <button type="submit" class="btn btn-success">Anunciar</button>
+        </form>
+        <%- include("../partials/footer.ejs")%> 
+    </div>
+</body>
+</html>

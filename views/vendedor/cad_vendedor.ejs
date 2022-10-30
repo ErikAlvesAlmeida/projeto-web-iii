@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar vendedor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div><br></div>    
+        <form action="/vendedor/login">
+            <button type="submit" class="btn btn-outline-danger">Voltar</button>
+        </form> 
+        <br>
+        <div>
+            <h3>Cadastrar Vendedor</h3>
+        </div>
+        <form action="/vendedor" method="post">
+            <div class="mb-3">
+                <label class="form-label">CPF:</label>
+                <input type="text" class="form-control" name="cpf" autocomplete="off" placeholder="(000.000.000-00)" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Nome:</label>
+                <input type="text" class="form-control" name="nome" autocomplete="off" placeholder="(Ricardo, José, ...)" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Idade:</label>
+                <input type="number" class="form-control" name="idade" autocomplete="off" placeholder="(Somente números)" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">E-mail:</label>
+                <input type="email" class="form-control" name="email" autocomplete="off" placeholder="(nome@example.com.br)" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Senha:</label>
+                <input type="password" class="form-control" name="senha" autocomplete="off" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+        <%- include("../partials/footer.ejs")%> 
+    </div>
+</body>
+</html>

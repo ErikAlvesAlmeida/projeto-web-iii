@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carro</title>
+    <%- include('../partials/header.ejs') %>
+</head>
+<body>
+    <div class="container">
+        <div><a href="/carro">Voltar</a></div>
+        <div>
+            Placa:&ensp;<%= placa %>
+        </div>
+        <div>
+            Nome:&ensp;<%= nome %>
+        </div>
+        <div>
+            Marca:&ensp;<%= marca %>
+        </div>
+        <div>
+            Valor:&ensp;R$<%= valor %>
+        </div>
+        <%- include("../partials/footer.ejs")%> 
+    </div>
+</body>
+</html>
